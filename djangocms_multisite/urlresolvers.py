@@ -13,6 +13,7 @@ from cms.appresolver import get_app_patterns
 from cms.constants import SLUG_REGEXP
 from cms.signals import urls_need_reloading
 from cms.views import details
+from cms import views
 
 MULTISITE_PATTERNS = {}
 if settings.APPEND_SLASH:
@@ -46,7 +47,8 @@ class CMSMultisiteRegexURLResolver(RegexURLResolver):
             else:
                 urlpatterns = []
 
-            urlpatterns.extend([
+            urlpatterns.extend([                
+                url(r'^cms_login/$', views.login, name='cms_login'),
                 url(r'^cms_wizard/', include('cms.wizards.urls')),
                 url(regexp, details, name='pages-details-by-slug'),
                 url(r'^$', details, {'slug': ''}, name='pages-root'),
