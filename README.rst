@@ -78,11 +78,11 @@ Usage
     MULTISITE_CMS_URLS={
         'www.example.com': 'tests.test_utils.urls1',
         'www.example2.com': 'tests.test_utils.urls2',
-    },
+    }
     MULTISITE_CMS_ALIASES={
         'www.example.com': ('alias1.example.com', 'alias2.example.com',),
         'www.example2.com': ('alias1.example2.com', 'alias2.example2.com',),
-    },
+    }
     MULTISITE_CMS_FALLBACK='www.example.com'
 
 #. In project ``urls.py``::
